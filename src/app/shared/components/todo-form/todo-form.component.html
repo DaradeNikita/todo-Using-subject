@@ -1,0 +1,14 @@
+<form [formGroup]="todoForm" (ngSubmit)="onformSubmit()">
+   <div class="form-group">
+    <label for="todoItem" class="text-white"><strong>Add Todo Item</strong></label>
+    <input type="text" id="todoItem" required placeholder="Add Todo Item" formControlName="todoItem" class="form-control text-success">
+    <button class="btn btn-primary my-3 btn-style" *ngIf="!isInEditMode">Add TodoItem</button>
+    <button class="btn btn-success my-3 btn-style" *ngIf="isInEditMode" type="button" (click)="onTodoItemUpdate()">Update TodoItem</button>
+   
+   </div>
+  
+   <span class="text-danger"
+   *ngIf="todoForm.controls['todoItem'].touched && todoForm.controls['todoItem'].hasError('required')">
+   This field is required !!!</span>
+  
+</form>

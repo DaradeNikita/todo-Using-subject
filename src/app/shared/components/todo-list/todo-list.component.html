@@ -1,0 +1,20 @@
+<strong class="text-white">Todo List</strong>
+<ul class="list-group" *ngIf="todoArr.length > 0;else onAdd">
+    <li class="list-group-item d-flex justify-content-between " *ngFor="let todo of todoArr">
+       <strong>{{todo.todoItem}}</strong>
+       <!-- <span><button class="bttn btn-primary">Edit</button>
+       <button class="bttn btn-primary">Delete</button></span> -->
+       <span>
+        <i class="fa-regular fa-pen-to-square text-info"
+        (click)="onTodoEdit(todo)"
+        
+        ></i> <i class="fa-solid fa-trash text-danger ml-3"
+        (click)="onTodoRemove(todo)"
+        ></i>
+    
+       </span>
+</ul>
+<ng-template #onAdd>
+    <p class="alert alert-danger">No Todo Added Yet!!!</p>
+</ng-template>
+
